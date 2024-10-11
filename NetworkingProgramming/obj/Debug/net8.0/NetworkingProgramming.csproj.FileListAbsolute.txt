@@ -1,0 +1,15 @@
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\bin\Debug\net8.0\NetworkingProgramming.exe
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\bin\Debug\net8.0\NetworkingProgramming.deps.json
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\bin\Debug\net8.0\NetworkingProgramming.runtimeconfig.json
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\bin\Debug\net8.0\NetworkingProgramming.dll
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\bin\Debug\net8.0\NetworkingProgramming.pdb
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.AssemblyInfoInputs.cache
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.AssemblyInfo.cs
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.csproj.CoreCompileInputs.cache
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.sourcelink.json
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.dll
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\refint\NetworkingProgramming.dll
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.pdb
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\NetworkingProgramming.genruntimeconfig.cache
+C:\Users\Danil\Desktop\NSU_SETI\NetworkingProgramming\obj\Debug\net8.0\ref\NetworkingProgramming.dll
