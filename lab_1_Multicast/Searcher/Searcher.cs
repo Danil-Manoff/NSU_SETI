@@ -22,9 +22,10 @@ class Searcher {
         this.remoteEndPoint = new IPEndPoint(IPAddress.Parse(this.multicastAddress), this.port);
         InitUdpClient(); 
     }
-    public Searcher(string multicastAddress, int port) {
+
+    public Searcher(string multicastAddress) {
         this.multicastAddress = multicastAddress;
-        this.port = port;
+        this.port = 12345;
         this.localEndPoint = new IPEndPoint(IPAddress.Any, port);
         this.remoteEndPoint = new IPEndPoint(IPAddress.Parse(multicastAddress), port);
         InitUdpClient();
