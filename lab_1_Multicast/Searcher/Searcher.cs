@@ -1,18 +1,19 @@
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
 class Searcher {
     private string multicastAddress;
     private int port;
-
     private IPEndPoint localEndPoint;
     private IPEndPoint remoteEndPoint; 
     private Dictionary<string, DateTime> aliveCopies = new Dictionary<string, DateTime>();
     private UdpClient udpClient = new UdpClient();
+    private const int COPY_LIFE_TIME = 3;
 
-    private const int lifeTime = 3;
+    public string GetMulticastAddress() {return multicastAddress;}
+    public int GetPort() {return port;}
+    public IPEndPoint GetIPEndPoint() {return localEndPoint;}
 
     public Searcher() {
         this.multicastAddress = "224.0.0.1";
@@ -28,11 +29,6 @@ class Searcher {
         this.remoteEndPoint = new IPEndPoint(IPAddress.Parse(multicastAddress), port);
         InitUdpClient();
     }
-
-    public string GetMulticastAddress() {return multicastAddress;}
-    public int GetPort() {return port;}
-
-    public IPEndPoint GetIPEndPoint() {return localEndPoint;}
 
     public void InitUdpClient() {
         this.udpClient.ExclusiveAddressUse = false;
@@ -52,22 +48,13 @@ class Searcher {
             }
         }
     }
-    
-    public bool MyEquals(Dictionary<string, DateTime> first, Dictionary<string, DateTime> second) {
-        foreach (var pairFirst in first) {
-            if (!second.ContainsKey(pairFirst.Key)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     public void PrintAliveCopies() {
         lock (aliveCopies) {
             DateTime now = DateTime.Now;
             Dictionary<string, DateTime> checkedAliveCopies = new Dictionary<string, DateTime>();
             foreach (var pair in aliveCopies) {
-                if ((now - pair.Value).TotalSeconds < lifeTime) {
+                if ((now - pair.Value).TotalSeconds < COPY_LIFE_TIME) {
                     checkedAliveCopies.Add(pair.Key, pair.Value);
                 }
             }
@@ -90,29 +77,5 @@ class Searcher {
     public void Send() {
         byte[] message = Encoding.UTF8.GetBytes("Hello multicast!"); 
         udpClient.Send(message, message.Length, remoteEndPoint);
-    }    
-
-    public static HashSet<IPAddress> GetLocalIPAddresses()
-    {
-        HashSet<IPAddress> ipAddresses = new HashSet<IPAddress>();
-
-        foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
-        {
-            // Пропускаем интерфейсы, которые не работают
-            if (ni.OperationalStatus != OperationalStatus.Up)
-                continue;
-
-            var ipProps = ni.GetIPProperties();
-            foreach (UnicastIPAddressInformation addr in ipProps.UnicastAddresses)
-            {
-                // Добавляем только IPv4 адреса
-                if (addr.Address.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    ipAddresses.Add(addr.Address);
-                }
-            }
-        }
-
-        return ipAddresses;
     }
 }
